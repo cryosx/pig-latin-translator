@@ -1,6 +1,6 @@
-const expect = chai.expect;
-const should = chai.should();
-const pigLatinTranslator = require('pig-latin-translator.js');
+const expect = require('chai').expect;
+const should = require('chai').should();
+const pigLatinTranslator = require('../pig-latin-translator.js');
 
 describe('pigLatinTranslator', function() {
   let translator = null;
@@ -11,6 +11,9 @@ describe('pigLatinTranslator', function() {
     // translator = pigLatinTranslator('test');
     it('should be a function', function() {
       expect(translator).to.respondTo('getPigLatin');
+    });
+    it('should translate into pig latin', function() {
+      expect(translator.getPigLatin()).to.equal('est-tay');
     });
   });
   describe('getEnglish()', function() {
