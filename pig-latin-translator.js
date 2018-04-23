@@ -2,12 +2,18 @@ module.exports = pigLatinTranslator;
 
 function pigLatinTranslator(text) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
-  // const targetString = text;
-
+  let targetString = text;
   return {
+    setText: setText,
     getPigLatin: translateSentenceInto,
     getEnglish: translateSentenceOut
   };
+
+  function setText(text) {
+    if (typeof text === 'string') {
+      targetString = text;
+    }
+  }
 
   function translateSentenceInto() {
     let sentenceSplit = text.split(' ');
