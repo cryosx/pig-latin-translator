@@ -16,7 +16,7 @@ function pigLatinTranslator(text) {
   }
 
   function translateSentenceInto() {
-    let sentenceSplit = text.split(' ');
+    let sentenceSplit = targetString.split(' ');
     let result = sentenceSplit.map(function(elem) {
       return translateWordInto(elem);
     });
@@ -24,7 +24,7 @@ function pigLatinTranslator(text) {
   }
 
   function translateSentenceOut() {
-    let sentenceSplit = text.split(' ');
+    let sentenceSplit = targetString.split(' ');
     let result = sentenceSplit.map(function(elem) {
       return translateWordOut(elem);
     });
