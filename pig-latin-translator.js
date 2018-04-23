@@ -1,4 +1,4 @@
-module.exports = {};
+module.exports = pigLatinTranslator;
 
 function pigLatinTranslator(text) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
