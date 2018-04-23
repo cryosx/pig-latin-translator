@@ -1,7 +1,8 @@
 module.exports = {};
 
-function pigLatinTranslator(string) {
+function pigLatinTranslator(text) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
+  // const targetString = text;
 
   return {
     getPigLatin: translateSentenceInto,
@@ -9,22 +10,22 @@ function pigLatinTranslator(string) {
   };
 
   function translateSentenceInto() {
-    let sentenceSplit = string.split(' ');
-    sentenceSplit.map(function(elem) {
+    let sentenceSplit = text.split(' ');
+    let result = sentenceSplit.map(function(elem) {
       return translateWordInto(elem);
     });
-    return sentenceSplit.join(' ');
+    return result.join(' ');
   }
 
   function translateSentenceOut() {
-    let sentenceSplit = string.split(' ');
-    sentenceSplit.map(function(elem) {
+    let sentenceSplit = text.split(' ');
+    let result = sentenceSplit.map(function(elem) {
       return translateWordOut(elem);
     });
-    return sentenceSplit.join(' ');
+    return result.join(' ');
   }
 
-  function translateWordInto() {
+  function translateWordInto(string) {
     let firstLetter = string[0].toLowerCase();
     let translatedString = null;
     if (vowels.includes(firstLetter)) {
@@ -34,14 +35,18 @@ function pigLatinTranslator(string) {
     }
     return translatedString;
   }
-  function translateWordOut() {
+  function translateWordOut(string) {
     let firstLetter = string[0].toLowerCase();
     let translatedString = null;
     let stringSplit = string.split('-');
     if (vowels.includes(firstLetter)) {
       translatedString = stringSplit[0];
     } else {
-      translatedString = `${stringSplit[1][0]}${stringSplit[0]}ay`;
+      if (stringSplit[1]) {
+        translatedString = `${stringSplit[1][0]}${stringSplit[0]}`;
+      } else {
+        translatedString = stringSplit[0];
+      }
     }
     return translatedString;
   }
