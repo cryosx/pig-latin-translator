@@ -3,6 +3,11 @@ module.exports = {};
 function pigLatinTranslator(string) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
 
+  return {
+    getPigLatin: translateSentenceInto,
+    getEnglish: translateSentenceOut
+  };
+
   function translateSentenceInto() {
     let sentenceSplit = string.split(' ');
     sentenceSplit.map(function(elem) {
@@ -11,7 +16,13 @@ function pigLatinTranslator(string) {
     return sentenceSplit.join(' ');
   }
 
-  function translateSentenceOut() {}
+  function translateSentenceOut() {
+    let sentenceSplit = string.split(' ');
+    sentenceSplit.map(function(elem) {
+      return translateWordOut(elem);
+    });
+    return sentenceSplit.join(' ');
+  }
 
   function translateWordInto() {
     let firstLetter = string[0].toLowerCase();
