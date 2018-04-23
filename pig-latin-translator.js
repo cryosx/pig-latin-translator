@@ -2,7 +2,18 @@ module.exports = {};
 
 function pigLatinTranslator(string) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
-  function translateInto() {
+
+  function translateSentenceInto() {
+    let sentenceSplit = string.split(' ');
+    sentenceSplit.map(function(elem) {
+      return translateWordInto(elem);
+    });
+    return sentenceSplit.join(' ');
+  }
+
+  function translateSentenceOut() {}
+
+  function translateWordInto() {
     let firstLetter = string[0].toLowerCase();
     let translatedString = null;
     if (vowels.includes(firstLetter)) {
@@ -12,7 +23,7 @@ function pigLatinTranslator(string) {
     }
     return translatedString;
   }
-  function translateOut() {
+  function translateWordOut() {
     let firstLetter = string[0].toLowerCase();
     let translatedString = null;
     let stringSplit = string.split('-');
